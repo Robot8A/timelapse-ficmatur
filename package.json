@@ -1,0 +1,15 @@
+{
+    "name": "leaflet-server",
+    "version": "1.0.0",
+    "description": "Serving a Leaflet map with Node.js",
+    "main": "server.js",
+    "scripts": {
+      "start": "node server.js"
+    },
+    "dependencies": {
+      "express": "^4.17.1",
+      "leaflet": "^1.7.1",
+      "leaflet.timeline": "1.4.3"
+    }
+  }
+  
