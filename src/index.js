@@ -1,3 +1,15 @@
+import leaflet from 'leaflet'
+
+function component() {
+  const element = document.createElement('div');
+  element.setAttribute("id", "mapid")
+
+  return element;
+}
+
+document.body.appendChild(component());
+
+
 var map = L.map('mapid').setView([51.505, -0.09], 13);
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
   attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
@@ -8,10 +20,10 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 L.marker([51.5, -0.09]).addTo(map)
   .bindPopup("<b>Hello world!</b><br />I am a popup.").openPopup();
 
-var timelineControl = L.timelineSliderControl({
+/*var timelineControl = L.timelineSliderControl({
   formatOutput: function (date) {
     return new Date(date).toString();
   },
 });
 
-timelineControl.addTo(map);
+timelineControl.addTo(map);*/
