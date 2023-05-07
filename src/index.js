@@ -9,6 +9,8 @@ const basemap = L.tileLayer.provider("OpenStreetMap.Mapnik").addTo(map);
 layers.addBaseLayer(basemap, "OpenStreetMap");
 layers.addBaseLayer(L.tileLayer.providerESP('PNOA'), "PNOA")
 
+var timelineControl;
+
 // Add GeoJSON layer
 $.getJSON("clips.geojson", function (data) {
   // Add timeline
@@ -26,8 +28,10 @@ $.getJSON("clips.geojson", function (data) {
     },
   }).addTo(map);
 
-  var timelineControl = L.timelineSliderControl({
+  timelineControl = L.timelineSliderControl({
     enableKeyboardControls: true,
+    showTicks: true,
+    position: "bottomright",
     formatOutput: function (date) {
       return new Date(date).getFullYear().toString();
     },
