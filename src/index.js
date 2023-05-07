@@ -1,5 +1,5 @@
 // Set up map
-var map = L.map('map').setView([40.42, -3.7], 13);
+var map = L.map('map').setView([40.42, -3.7], 12);
 
 // Add layer control
 const layers = L.control.layers().addTo(map);
@@ -30,8 +30,12 @@ $.getJSON("clips.geojson", function (data) {
 
   timelineControl = L.timelineSliderControl({
     enableKeyboardControls: true,
-    showTicks: true,
+    showTicks: false,
     position: "bottomright",
+    start: (new Date("1953-02-02")).getTime(), // day and month not relevant, but better to state a day in the middle of the year
+    end: (new Date("2018-02-02")).getTime(),
+    steps: (2018-1953),
+    duration: (2018-1953)*1000, // milliseconds
     formatOutput: function (date) {
       return new Date(date).getFullYear().toString();
     },
