@@ -28,14 +28,17 @@ $.getJSON("clips.geojson", function (data) {
     },
   }).addTo(map);
 
+  let startYear = 1953;
+  let endYear = 2018;
+
   timelineControl = L.timelineSliderControl({
     enableKeyboardControls: true,
     showTicks: false,
     position: "bottomright",
-    start: (new Date("1953-02-02")).getTime(), // day and month not relevant, but better to state a day in the middle of the year
-    end: (new Date("2018-02-02")).getTime(),
-    steps: (2018-1953),
-    duration: (2018-1953)*1000, // milliseconds
+    start: (new Date(startYear.toString() + "-02-02")).getTime(), // day and month not relevant, but better to state a day in the middle of the year
+    end: (new Date(endYear.toString() + "-02-02")).getTime(),
+    steps: (endYear-startYear),
+    duration: (endYear-startYear)*1000, // milliseconds
     formatOutput: function (date) {
       return new Date(date).getFullYear().toString();
     },

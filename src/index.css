@@ -10,14 +10,16 @@ body {
   height: 100%;
 }
 
+.leaflet-bottom.leaflet-right {
+  width: 100%;
+}
+
 .leaflet-control.leaflet-timeline-control {
   margin-left: 0 !important;
   margin-bottom: 0 !important;
-  box-sizing: content-box;
 }
 
-.leaflet-timeline-control .time-slider {
-  min-width: 300px;
-  width: calc(100vw - 25px);
-  max-width: 640px;
+.time-text {
+  font-weight: bold;
+  font-size: large;
 }
