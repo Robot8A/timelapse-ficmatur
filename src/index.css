@@ -23,3 +23,24 @@ body {
   font-weight: bold;
   font-size: large;
 }
+
+.counter-control {
+  padding: 5px;
+}
+
+.counter-div {
+  width: 150px;
+  height: 1.2em;
+  line-height: 1.2em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.counter-text {
+  text-align: left;
+}
+
+.counter-number {
+  text-align: right;
+}

@@ -9,6 +9,46 @@ const basemap = L.tileLayer.provider("OpenStreetMap.Mapnik").addTo(map);
 layers.addBaseLayer(basemap, "OpenStreetMap");
 layers.addBaseLayer(L.tileLayer.providerESP('PNOA'), "PNOA")
 
+// Add custom control to display the clip counter
+var counterControl = L.control.custom({
+  position: 'topright',
+  content : '<div id="cd-year" class="counter-div">'+
+      '<span id="ct-year" class="counter-text">Año actual</span>' +
+      '<span id="cn-year" class="counter-number">0</span>' +
+      '</div>' +
+      '<div id="cd-all" class="counter-div">'+
+      '<span id="ct-all" class="counter-text">Total</span>' +
+      '<span id="cn-all" class="counter-number">0</span>' +
+      '</div>',
+  classes : 'leaflet-control-layers counter-control',
+  style   :
+      {
+        margin: '10px',
+        cursor: 'pointer',
+      },
+  datas   :
+      {},
+  events:
+      {
+        click: function(data)
+        {
+          console.log('wrapper div element clicked');
+          console.log(data);
+        },
+        dblclick: function(data)
+        {
+          console.log('wrapper div element dblclicked');
+          console.log(data);
+        },
+        contextmenu: function(data)
+        {
+          console.log('wrapper div element contextmenu');
+          console.log(data);
+        },
+      }
+})
+    .addTo(map);
+
 var timelineControl;
 
 // Add GeoJSON layer
