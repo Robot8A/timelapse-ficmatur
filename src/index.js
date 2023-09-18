@@ -4,7 +4,7 @@ var map = L.map('map').setView([40.42, -3.7], 12);
 // Add custom control to display the clip counter
 var counterControl = L.control.custom({
     position: 'topright',
-    content : '<div style="font-weight: bold">Año actual</div>' +
+    content : '<div style="font-weight: bold">Año seleccionado</div>' +
         '<div id="cd-clips" class="counter-div">'+
         '<span id="ct-clips" class="counter-text">Clips</span>' +
         '<span id="cn-clips" class="counter-number">0</span>' +
