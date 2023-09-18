@@ -4,13 +4,14 @@ var map = L.map('map').setView([40.42, -3.7], 12);
 // Add custom control to display the clip counter
 var counterControl = L.control.custom({
     position: 'topright',
-    content : '<div id="cd-year" class="counter-div">'+
-        '<span id="ct-year" class="counter-text">Año actual</span>' +
-        '<span id="cn-year" class="counter-number">0</span>' +
+    content : '<div style="font-weight: bold">Año actual</div>' +
+        '<div id="cd-clips" class="counter-div">'+
+        '<span id="ct-clips" class="counter-text">Clips</span>' +
+        '<span id="cn-clips" class="counter-number">0</span>' +
         '</div>' +
-        '<div id="cd-all" class="counter-div">'+
-        '<span id="ct-all" class="counter-text">Total</span>' +
-        '<span id="cn-all" class="counter-number">0</span>' +
+        '<div id="cd-movies" class="counter-div">'+
+        '<span id="ct-movies" class="counter-text">Películas</span>' +
+        '<span id="cn-movies" class="counter-number">0</span>' +
         '</div>',
     classes : 'leaflet-control-layers counter-control',
     style   :
@@ -45,7 +46,7 @@ function updateCurrentYearCounter(timeline) {
     displayed.forEach(function () {
         count++;
     });
-    document.getElementById("cn-year").textContent = count.toString();
+    document.getElementById("cn-clips").textContent = count.toString();
 }
 
 // Add layer control
