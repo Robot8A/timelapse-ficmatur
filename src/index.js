@@ -64,7 +64,15 @@ $.getJSON("clips.geojson", function (data) {
   // Add timeline
   const timeline = L.timeline(data, {
     onEachFeature(feature, layer) {
-      layer.bindTooltip(feature.properties.name);
+      layer.bindTooltip(
+          '<h3><b>' + feature.properties['Titulo'] + '</b> (' + feature.properties['Director'] + ', ' +
+          feature.properties['Ano'] +  ')</h3><img src="https://geocine.uc3m.es/pficmatur/fotogramas/' +
+          feature.properties['id'] + '.jpg" style="width: 200px;display: block;margin-left: auto;margin-right: auto;">',
+          {
+              interactive: true,
+              permanent: true,
+          }
+      );
     },
     style(feature) {
       return {
