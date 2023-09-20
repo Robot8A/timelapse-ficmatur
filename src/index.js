@@ -42,11 +42,19 @@ var counterControl = L.control.custom({
 function updateCurrentYearCounter(timeline) {
     var displayed = timeline.getLayers();
     var list = document.getElementById("displayed-list");
-    var count = 0;
-    displayed.forEach(function () {
-        count++;
+    var clip_count = 0;
+    var movie_list = [];
+    var movie_count = 0;
+    displayed.forEach(function (clip) {
+        let movie = clip.feature.properties['Titulo'];
+        if (!movie_list.includes(movie)) {
+            movie_list.push(movie);
+            movie_count++;
+        }
+        clip_count++;
     });
-    document.getElementById("cn-clips").textContent = count.toString();
+    document.getElementById("cn-clips").textContent = clip_count.toString();
+    document.getElementById("cn-movies").textContent = movie_count.toString();
 }
 
 // Add layer control
