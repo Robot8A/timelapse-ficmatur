@@ -69,8 +69,8 @@ $.getJSON("clips.geojson", function (data) {
           feature.properties['Ano'] +  ')</h3><img src="https://geocine.uc3m.es/pficmatur/fotogramas/' +
           feature.properties['id'] + '.jpg" style="width: 200px;display: block;margin-left: auto;margin-right: auto;">',
           {
-              interactive: true,
-              permanent: true,
+              //interactive: true,
+              //permanent: true,
           }
       );
     },
