@@ -72,15 +72,27 @@ $.getJSON("clips.geojson", function (data) {
   // Add timeline
   const timeline = L.timeline(data, {
     onEachFeature(feature, layer) {
-      layer.bindTooltip(
-          '<h3><b>' + feature.properties['Titulo'] + '</b> (' + feature.properties['Director'] + ', ' +
-          feature.properties['Ano'] +  ')</h3><img src="https://geocine.uc3m.es/pficmatur/fotogramas/' +
-          feature.properties['id'] + '.jpg" style="width: 200px;display: block;margin-left: auto;margin-right: auto;">',
-          {
-              //interactive: true,
-              //permanent: true,
-          }
-      );
+        let tooltipText = '<h3><b>' + feature.properties['Titulo'] + '</b> (' + feature.properties['Director']
+            + ', ' + feature.properties['Ano'] +  ')</h3><img src="https://geocine.uc3m.es/pficmatur/fotogramas/' +
+            feature.properties['id'] + '.jpg" style="width: 200px;display: block;margin-left: auto;margin-right: auto;" alt="Fotograma del clip">'
+        layer.bindPopup(
+            tooltipText,
+            {}
+        );
+        layer.bindTooltip(
+            tooltipText,
+            {
+                closeButton: false,
+                //direction: 'top'
+            }
+        );
+        layer.on('click', function () {
+            layer.openPopup();
+            this.getTooltip().setOpacity(0);
+        });
+        layer.on('mouseover', function () {
+            this.getTooltip().setOpacity(this.isPopupOpen() ? 0 : .9);
+        });
     },
     style(feature) {
       return {
